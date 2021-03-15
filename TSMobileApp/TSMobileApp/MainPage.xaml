@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TSMobileApp.MainPage"
+             >
+
+    <Grid Padding="0">
+        <Image Source="menu_bg_01.jpg" Aspect="AspectFill" RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+        RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+        <StackLayout BackgroundColor="#AFFFFFFF" Margin="70,110,70,150">
+            <Entry x:Name="Username_Entry" Placeholder="Username" Margin="30,50,30,10" TextColor="Black" PlaceholderColor="Black"/>
+            <Entry x:Name="Password_Entry" Placeholder="Password" IsPassword="True" Margin="30,30,30,10" TextColor="Black" PlaceholderColor="Black"/>
+            <Button x:Name="Login_Btn" Clicked="Login_Btn_Clicked" Text="Login" Margin="30,30,30,10" BackgroundColor="#ABCB55" TextColor="White"/>
+        </StackLayout>  
+    </Grid>
+</ContentPage>
