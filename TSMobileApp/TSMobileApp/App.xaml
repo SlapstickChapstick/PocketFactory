@@ -5,6 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="TPGreen">#ABCB55</Color>
+            <Color x:Key="ShellColor">#454545</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

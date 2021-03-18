@@ -49,5 +49,10 @@ namespace TSMobileApp
                 return Tuple.Create(false, 2);
             }
         }
+
+        private void Setting_Btn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new Pages.Settings());
+        }
     }
 }

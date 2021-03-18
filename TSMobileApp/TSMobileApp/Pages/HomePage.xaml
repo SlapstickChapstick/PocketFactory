@@ -4,7 +4,7 @@
              x:Class="TSMobileApp.Pages.HomePage">
     <ContentPage.Content>
         <StackLayout>
-            <Frame BackgroundColor="{x:DynamicResource TPGreen}">
+            <Frame BackgroundColor="{x:DynamicResource ShellColor}">
                 <Label Text="Home" TextColor="White" FontSize="18"/>
             </Frame>
             <StackLayout Margin="25">

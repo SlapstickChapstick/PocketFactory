@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TSMobileApp.Pages.Settings">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="{x:DynamicResource ShellColor}">
+                <Label Text="Settings" TextColor="White" FontSize="18"/>
+            </Frame>
+            <StackLayout Margin="25">
+                <Entry x:Name="Server_Entry" Placeholder="Server Address (IP/FQDN)" Margin="30,30,30,10" TextColor="Black" PlaceholderColor="Black"/>
+                <Entry x:Name="Port_Entry" Placeholder="Port" Margin="30,30,30,10" TextColor="Black" PlaceholderColor="Black"/>
+                <Button x:Name="Apply_Btn" Clicked="Apply_Btn_Clicked" Text="Apply" Margin="30,30,30,10" BackgroundColor="{x:DynamicResource ShellColor}" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

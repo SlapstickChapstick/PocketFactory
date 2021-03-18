@@ -10,7 +10,8 @@
         <StackLayout BackgroundColor="#AFFFFFFF" Margin="70,110,70,150">
             <Entry x:Name="Username_Entry" Placeholder="Username" Margin="30,50,30,10" TextColor="Black" PlaceholderColor="Black"/>
             <Entry x:Name="Password_Entry" Placeholder="Password" IsPassword="True" Margin="30,30,30,10" TextColor="Black" PlaceholderColor="Black"/>
-            <Button x:Name="Login_Btn" Clicked="Login_Btn_Clicked" Text="Login" Margin="30,30,30,10" BackgroundColor="#ABCB55" TextColor="White"/>
+            <Button x:Name="Login_Btn" Clicked="Login_Btn_Clicked" Text="Login" Margin="30,30,30,10" BackgroundColor="{x:DynamicResource ShellColor}" TextColor="White"/>
+            <Button x:Name="Setting_Btn" Clicked="Setting_Btn_Clicked" Text="Settings" Margin="30,30,30,10" BackgroundColor="{x:DynamicResource ShellColor}" TextColor="White"/>
         </StackLayout>  
     </Grid>
 </ContentPage>
