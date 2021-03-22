@@ -56,7 +56,6 @@ namespace TSMobileApp.Pages
                 App.Server_Addr = server_details[0];
                 App.Server_Port = server_details[1];
             }
-            
         }
     }
 }

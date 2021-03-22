@@ -22,31 +22,13 @@ namespace TSMobileApp
             pass_crypt = Encryption.AES_Encrypt(password);
             Console.WriteLine(pass_crypt);
 
-            if (AuthenticateLogin(username, password).Item1)
+            if (Scripts.SQL.Authentication.AuthenicateLogin(username, pass_crypt))
             {
                 Application.Current.MainPage = new HomePage();
             }
             else
             {
                 DisplayAlert("Error!", "Your login details were incorrect. Please try again!", "OK");
-            }
-        }
-
-        private Tuple<bool,int> AuthenticateLogin(string username, string password)
-        {
-            bool auth_result = false;
-
-            if (auth_result)
-            {
-                return Tuple.Create(true, 1);
-            }
-            else if (auth_result == false)
-            {
-                return Tuple.Create(false, 0);
-            }
-            else
-            {
-                return Tuple.Create(false, 2);
             }
         }
 
