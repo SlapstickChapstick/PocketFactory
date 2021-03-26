@@ -8,7 +8,7 @@
                 <Label Text="Home" TextColor="White" FontSize="18"/>
             </Frame>
             <StackLayout Margin="25">
-                <Label x:Name="WelcomeLabel" FontSize="28" Text="WELCOME"/>
+                <Button x:Name="Logout_Btn" Text="Logout" BackgroundColor="{x:DynamicResource ShellColor}" TextColor="White" Clicked="Logout_Btn_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

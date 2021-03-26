@@ -2,6 +2,8 @@
 using TSMobileApp.Scripts.Security;
 using Xamarin.Forms;
 using TSMobileApp.Pages;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace TSMobileApp
 {
@@ -11,9 +13,16 @@ namespace TSMobileApp
         public MainPage()
         {
             InitializeComponent();
+
+            List<string> server_details = Scripts.Files.ReadSettings.ReadFromConfigFile();
+
+            App.Server_Addr = server_details[0];
+            App.Server_Port = server_details[1];
+
+            Console.WriteLine(App.Server_Addr + ":" + App.Server_Port);
         }
 
-        private void Login_Btn_Clicked(object sender, EventArgs e)
+        private async void Login_Btn_Clicked(object sender, EventArgs e)
         {
             string username = Username_Entry.Text;
             string password = Password_Entry.Text;
@@ -22,13 +31,33 @@ namespace TSMobileApp
             pass_crypt = Encryption.AES_Encrypt(password);
             Console.WriteLine(pass_crypt);
 
-            if (Scripts.SQL.Authentication.AuthenicateLogin(username, pass_crypt))
+            var result = await Scripts.SQL.Authentication.AuthenicateLogin(username, pass_crypt);
+
+            Console.WriteLine(result.logged_in);
+
+            if (result.logged_in)
             {
-                Application.Current.MainPage = new HomePage();
+                if (await Scripts.SQL.Authentication.CheckGroups(username))
+                {
+                    Application.Current.MainPage = new HomePage();
+                }
+                else
+                {
+                    DisplayAlert("Error!", "Your do not have permission to use this app. Please contact a system administrator.", "OK");
+                }
             }
             else
             {
-                DisplayAlert("Error!", "Your login details were incorrect. Please try again!", "OK");
+                switch (result.status_code)
+                {
+                    case 1:
+                        DisplayAlert("Error!", "Your login details were incorrect. Please check them and try again!", "OK");
+                        break;
+
+                    case 2:
+                        DisplayAlert("Error!", "The server details are incorrect. Please check them and try again!", "OK");
+                        break;
+                }
             }
         }
 

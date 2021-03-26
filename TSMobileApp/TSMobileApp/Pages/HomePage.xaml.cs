@@ -15,12 +15,11 @@ namespace TSMobileApp.Pages
         public HomePage()
         {
             InitializeComponent();
-            SetLabelText();
         }
 
-        private void SetLabelText()
+        private void Logout_Btn_Clicked(object sender, EventArgs e)
         {
-            WelcomeLabel.Text = App.Username;
+            Application.Current.MainPage = new MainPage();
         }
     }
 }
